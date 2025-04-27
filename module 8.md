@@ -15,16 +15,58 @@ Algorithm:
 4.	Exit the program.
  
 Program:
+```
+#include<stdio.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    switch(n)
+    {
+        case 71:
+        printf("seventy one\n");
+        break;
+        case 72:
+        printf("seventy two\n");
+        break;
+        case 73:
+        printf("seventy three");
+        break;
+        case 74:
+        printf("seventy four");
+        break;
+        case 75:
+        printf("seventy five");
+        break;
+        case 76:
+        printf("seventy six");
+        break;
+        case 77:
+        printf("seventy seven");
+        break;
+        case 78:
+        printf("seventy eight");
+        break;
+        case 79:
+        printf("seventy nine");
+        break;
+        default:
+        printf("Greater than 79");
+        break;
+    }
+    return 0;
+}
+```
 
-//type your code here
 
 
 
 
 Output:
 
+![image](https://github.com/user-attachments/assets/ad76db39-2383-49b7-8d9a-4c58227ac15c)
 
-//paste your output here
+
 
 
 
@@ -47,15 +89,37 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <string.h>
+int main() 
+{
+    char s[50];  
+    int count[3] = {0}; 
+    scanf("%s", s);
+    for (int i = 0; i < strlen(s); i++) 
+    {
+        if (s[i] >= '0' && s[i] <= '3')
+        {  
+            count[s[i] - '0']++;  
+        }
+    }
+    for (int i = 0; i < 3; i++) 
+    {
+        printf("%d ", count[i]);
+    }
+    return 0;
+}
+```
 
 
 
 
 Output:
 
+![image](https://github.com/user-attachments/assets/45fcf46d-7e53-4864-85d0-dedc3862d84f)
 
-//paste your output here
+
 
 
 
@@ -83,8 +147,68 @@ Free the memory allocated for each string in s Free the memory allocated for s
 7.	End
  
 Program:
+```
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+void swap(char **a, char **b) 
+{
+    char *temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int next_permutation(char *arr[], int n)
+{
+    int i = n - 2;
+    while (i >= 0 && strcmp(arr[i], arr[i + 1]) >= 0) 
+    {
+        i--;
+    }
+    if (i < 0) 
+    {
+        return 0; 
+    }
+    int j = n - 1;
+    while (strcmp(arr[i], arr[j]) >= 0) 
+    {
+        j--;
+    }
+    swap(&arr[i], &arr[j]);
+    int left = i + 1, right = n - 1;
+    while (left < right) {
+        swap(&arr[left], &arr[right]);
+        left++;
+        right--;
+    }
+    return 1;
+}
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    char *s[n];  
+    for (int i = 0; i < n; i++) 
+    {
+        s[i] = (char *)malloc(11 * sizeof(char));  
+        scanf("%s", s[i]);
+    }
+    qsort(s, n, sizeof(char *), (int (*)(const void *, const void *)) strcmp);
+    do 
+    {
+        for (int i = 0; i < n; i++) 
+        {
+            printf("%s ", s[i]);
+        }
+        printf("\n");
+    } while (next_permutation(s, n));
+    for (int i = 0; i < n; i++) 
+    {
+        free(s[i]);
+    }
+    return 0;
+}
+```
 
-//type your code here
 
 
 
@@ -92,7 +216,7 @@ Program:
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/1685a2dd-9a05-4b9b-88b8-8171a1d096a2)
 
 
 
@@ -116,8 +240,28 @@ Algorithm:
 7.	End
  
 Program:
+```
+#include<stdio.h>
+int main()
+{
+    int n,i,j;
+    scanf("%d",&n);
+    int len=2*n-1;
+    for(i=0;i<len;i++)
+    {
+        for(j=0;j<len;j++)
+        {
+            int min=i<j?i:j;
+            min=min<len-i-1?min:len-i-1;
+            min=min<len-j-1?min:len-j-1;
+            printf("%d ",n-min);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
 
-//type your code here
 
 
 
@@ -125,7 +269,9 @@ Program:
 Output:
 
 
-//paste your output here
+
+![image](https://github.com/user-attachments/assets/dee39f86-f283-4d6a-810f-1d5f6652cb55)
+
 
 
 
@@ -155,8 +301,24 @@ o	Call the square() function and display the result.
 5.	End.
 
 Program:
+```
+#include <stdio.h>
+int square() {
+    int num, sqr;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    sqr = num * num;
+    return sqr;
+}
 
-//type your code here
+int main() {
+    int result;
+    result = square();
+    printf("Square of the number is: %d\n", result);
+    return 0;
+}
+```
+
 
 
 
@@ -164,7 +326,7 @@ Program:
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/3f28fa67-a4db-4334-9141-e3c1e410309b)
 
 
 
