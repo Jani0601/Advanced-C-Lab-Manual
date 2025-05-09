@@ -180,6 +180,7 @@ int main() {
 ```
 
 Output:
+
 ![image](https://github.com/user-attachments/assets/2fc4faa8-41d4-462f-8a64-bfd4d22376ec)
 
 
